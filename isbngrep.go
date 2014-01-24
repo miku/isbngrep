@@ -77,15 +77,15 @@ func main() {
             }
             occurences := re.FindAllString(string(line), -1)
             for _, occ := range occurences {
-                _, ok := seen[occ]
-                if c.Bool("uniq") && ok {
+                _, exists := seen[occ]
+                if c.Bool("uniq") && exists {
                     continue
                 }
                 if !c.Bool("only-13") {
                     ok, value := is_valid_isbn_10(occ)
                     if ok {
                         fmt.Println(value)
-                        seen[value] = true
+                        seen[occ] = true
                         matches += 1
                         continue
                     }
@@ -96,7 +96,7 @@ func main() {
                 ok, value := is_valid_isbn_13(occ)
                 if ok {
                     fmt.Println(value)
-                    seen[value] = true
+                    seen[occ] = true
                     matches += 1
                 }
             }
