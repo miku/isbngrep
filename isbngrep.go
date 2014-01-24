@@ -58,10 +58,13 @@ func main() {
     app := cli.NewApp()
     app.Flags = []cli.Flag{
         cli.BoolFlag{"verbose", "be verbose"},
-        cli.BoolFlag{"uniq", "return a uniq list"},
+        cli.BoolFlag{"uniq, u", "return a uniq list"},
+        cli.BoolFlag{"only-10, 0", "only ISBN10"},
+        cli.BoolFlag{"only-13, 3", "only ISBN13"},
     }
     app.Name = "isbngrep"
     app.Usage = "find ISBNs in texts"
+    app.Version = "1.0.0"
     app.Action = func(c *cli.Context) {
         bio := bufio.NewReader(os.Stdin)
         matches := 0
@@ -78,14 +81,19 @@ func main() {
                 if c.Bool("uniq") && ok {
                     continue
                 }
-                ok, value := is_valid_isbn_10(occ)
-                if ok {
-                    fmt.Println(value)
-                    seen[value] = true
-                    matches += 1
+                if !c.Bool("only-13") {
+                    ok, value := is_valid_isbn_10(occ)
+                    if ok {
+                        fmt.Println(value)
+                        seen[value] = true
+                        matches += 1
+                        continue
+                    }
+                }
+                if c.Bool("only-10") {
                     continue
                 }
-                ok, value = is_valid_isbn_13(occ)
+                ok, value := is_valid_isbn_13(occ)
                 if ok {
                     fmt.Println(value)
                     seen[value] = true
