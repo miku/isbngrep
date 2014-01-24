@@ -28,6 +28,11 @@ Help
        --help, -h       show help
 
 
+Performance
+-----------
+
+Scans about 130K lines per second (i5, HDD).
+
 Build
 -----
 
