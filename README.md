@@ -34,4 +34,8 @@ Build
     $ go get github.com/codegangsta/cli
     $ make
     $ cat test.txt | ./isbngrep --uniq
-
+    0486653552
+    0486281523
+    0486234002
+    0486270785
+    ...
