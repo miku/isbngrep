@@ -14,14 +14,16 @@ Help
        isbngrep [global options] command [command options] [arguments...]
 
     VERSION:
-       0.0.0
+       1.0.0
 
     COMMANDS:
        help, h  Shows a list of commands or help for one command
 
     GLOBAL OPTIONS:
        --verbose        be verbose
-       --uniq       return a uniq list
+       --uniq, -u       return a uniq list
+       --only-10, -0    only ISBN10
+       --only-13, -3    only ISBN13
        --version, -v    print the version
        --help, -h       show help
 
