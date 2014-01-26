@@ -4,3 +4,7 @@ isbngrep: isbngrep.go
 
 clean:
 	rm -f isbngrep
+	rm -f isbngrepc
+
+isbngrepc: isbngrep.c
+	cc -o isbngrepc -lpcre isbngrep.c
