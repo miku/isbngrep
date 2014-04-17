@@ -3,3 +3,4 @@ isbngrepc
 .vagrant/
 Vagrantfile
 vagrant.key
+*rpm

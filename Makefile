@@ -26,3 +26,8 @@ rpm-compatible: vagrant.key
 	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "mkdir -p /home/vagrant/github/miku && cd /home/vagrant/github/miku && [ -d /home/vagrant/github/miku/isbngrep ] || git clone https://github.com/miku/isbngrep.git"
 	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "cd /home/vagrant/github/miku/isbngrep && git pull origin master && GOPATH=/home/vagrant go get github.com/codegangsta/cli && GOPATH=/home/vagrant make rpm"
 	scp -o port=2222 -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1:/home/vagrant/github/miku/isbngrep/*rpm .
+
+vm-setup:
+	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "sudo yum install -y http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm"
+	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "cd /etc/yum.repos.d && sudo wget http://www.hop5.in/yum/el6/hop5.repo"
+	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "sudo yum install -y golang git rpm-build"
