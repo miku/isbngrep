@@ -6,7 +6,7 @@ A simple command line tool to extract normalized ISBNs from arbitrary text.
 Help
 ----
 
-    $ ./isbngrep -h
+     $ ./isbngrep -h
     NAME:
        isbngrep - find ISBNs in texts
 
@@ -24,8 +24,10 @@ Help
        --uniq, -u       return a uniq list
        --only-10, -0    only ISBN10
        --only-13, -3    only ISBN13
+       --normalize, -n  normalize to ISBN13
        --version, -v    print the version
        --help, -h       show help
+
 
 
 Performance
