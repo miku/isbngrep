@@ -1,2 +1,5 @@
 isbngrep
 isbngrepc
+.vagrant/
+Vagrantfile
+vagrant.key
