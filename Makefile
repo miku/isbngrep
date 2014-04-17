@@ -23,5 +23,6 @@ vagrant.key:
 # And: sudo yum install git rpm-build
 # Don't forget to vagrant up :)
 rpm-compatible: vagrant.key
-	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "cd /home/vagrant/github/miku/isbngrep && git pull origin master && GOPATH=/home/vagrant make rpm"
+	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "mkdir -p /home/vagrant/github/miku && cd /home/vagrant/github/miku && [ -d /home/vagrant/github/miku/isbngrep ] || git clone https://github.com/miku/isbngrep.git"
+	ssh -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1 -p 2222 "cd /home/vagrant/github/miku/isbngrep && git pull origin master && GOPATH=/home/vagrant go get github.com/codegangsta/cli && GOPATH=/home/vagrant make rpm"
 	scp -o port=2222 -o StrictHostKeyChecking=no -i vagrant.key vagrant@127.0.0.1:/home/vagrant/github/miku/isbngrep/*rpm .
