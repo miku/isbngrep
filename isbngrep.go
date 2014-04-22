@@ -93,7 +93,7 @@ func main() {
     }
     app.Name = "isbngrep"
     app.Usage = "find ISBNs in texts"
-    app.Version = "1.0.0"
+    app.Version = "1.0.2"
     app.Action = func(c *cli.Context) {
         bio := bufio.NewReader(os.Stdin)
         matches := 0

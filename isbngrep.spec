@@ -1,6 +1,6 @@
 Summary:    Grep ISBNs
 Name:       isbngrep
-Version:    1.0.1
+Version:    1.0.2
 Release:    0
 License:    MIT
 BuildArch:  x86_64
@@ -46,6 +46,10 @@ rm -rf %{_topdir}/BUILD/%{name}
 
 
 %changelog
+* Mon Apr 22 2014 Martin Czygan
+- 1.0.2 release
+- updated makefile
+
 * Sat Apr 17 2014 Martin Czygan
 - initial packages release
 - 1.0.1 release
