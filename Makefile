@@ -5,6 +5,7 @@ isbngrep: isbngrep.go
 clean:
 	rm -f isbngrep
 	rm -f isbngrepc
+	rm -f isbngrep-*.rpm
 
 # buildrpm: https://gist.github.com/miku/7874111
 rpm: isbngrep
