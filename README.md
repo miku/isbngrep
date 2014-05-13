@@ -3,6 +3,8 @@ README
 
 A simple command line tool to extract normalized ISBNs from arbitrary text.
 
+![Gobuild Download](http://gobuild.io/badge/github.com/miku/isbngrep/download.png)
+
 Help
 ----
 
